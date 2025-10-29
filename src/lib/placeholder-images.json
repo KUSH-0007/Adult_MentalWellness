@@ -1,0 +1,64 @@
+{
+  "placeholderImages": [
+    {
+      "id": "breathing-exercise",
+      "description": "A person meditating peacefully outdoors by a lake.",
+      "imageUrl": "https://images.unsplash.com/photo-1536007164800-b7f11331f35c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bWVkaXRhdGlvbiUyMG5hdHVyZXxlbnwwfHx8fDE3NjE0ODc2ODV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "meditation nature"
+    },
+    {
+      "id": "grounding-exercise",
+      "description": "A close-up of a hand gently touching a dewy leaf.",
+      "imageUrl": "https://images.unsplash.com/photo-1484538441406-ea31a113806f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxoYW5kJTIwbmF0dXJlfGVufDB8fHx8MTc2MTU3NTA0OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hand nature"
+    },
+    {
+      "id": "mindfulness-exercise",
+      "description": "Stacked stones on a beach at sunset.",
+      "imageUrl": "https://images.unsplash.com/photo-1532009877282-3340270e0529?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx6ZW4lMjBzdG9uZXN8ZW58MHx8fHwxNzYxNTc1MDQ5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "zen stones"
+    },
+    {
+      "id": "facial-recognition",
+      "description": "Abstract visualization of facial recognition technology with glowing lines on a face.",
+      "imageUrl": "https://images.unsplash.com/photo-1623605931891-d5b95ee98459?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmYWNpYWwlMjByZWNvZ25pdGlvbnxlbnwwfHx8fDE3NjE1NzU1OTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "facial recognition"
+    },
+    {
+      "id": "doctor-photo",
+      "description": "A friendly and professional-looking doctor.",
+      "imageUrl": "https://images.unsplash.com/photo-1612523138351-4643808db8f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxkb2N0b3IlMjBwcm9mZXNzaW9uYWx8ZW58MHx8fHwxNzYxNDk4NzEwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "doctor professional"
+    },
+    {
+      "id": "about-sentiheal",
+      "description": "A person looking out over a calm body of water, symbolizing peace and reflection.",
+      "imageUrl": "https://images.unsplash.com/photo-1604881991720-f91add269bed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtZW50YWwlMjBoZWFsdGh8ZW58MHx8fHwxNzYxNTgzNTU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mental health"
+    },
+    {
+      "id": "hero-background-calm",
+      "description": "Abstract generative art of calm, flowing blue and teal waves.",
+      "imageUrl": "https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "calm background"
+    },
+    {
+      "id": "blog-mindfulness",
+      "description": "A serene shot of a person practicing yoga at sunrise.",
+      "imageUrl": "https://images.unsplash.com/photo-1592895792095-85fa785192a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtaW5kZnVsbmVzcyUyMHlvZ2F8ZW58MHx8fHwxNzYxNTgzOTk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mindfulness yoga"
+    },
+    {
+      "id": "blog-sleep",
+      "description": "A calm and cozy bedroom with soft lighting, ready for a restful night.",
+      "imageUrl": "https://images.unsplash.com/photo-1644082088449-a3abd6197981?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzbGVlcCUyMGJlZHJvb218ZW58MHx8fHwxNzYxNTgzOTk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sleep bedroom"
+    },
+    {
+      "id": "blog-stress",
+      "description": "A person sitting by a window with a cup of tea, looking relaxed.",
+      "imageUrl": "https://images.unsplash.com/photo-1560232657-ffb2e8f5938a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxyZWxheGluZyUyMHN0cmVzc3xlbnwwfHx8fDE3NjE1ODM5OTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "relaxing stress"
+    }
+  ]
+}

@@ -1,0 +1,273 @@
+{
+  "entities": {
+    "User": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "User",
+      "type": "object",
+      "description": "Represents a user of the SentiHeal application.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the user entity."
+        },
+        "creationDate": {
+          "type": "string",
+          "description": "The date and time when the user account was created.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "creationDate"
+      ]
+    },
+    "ConversationMessage": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ConversationMessage",
+      "type": "object",
+      "description": "Represents a single message in a conversation between a user and the AI companion.",
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "The content of the message."
+        },
+        "sender": {
+          "type": "string",
+          "description": "Indicates who sent the message, either 'user' or 'bot'."
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "The server timestamp of when the message was created.",
+          "format": "date-time"
+        },
+        "suggestedExercise": {
+          "type": "object",
+          "description": "An optional exercise suggested by the bot in its response.",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": [
+        "text",
+        "sender",
+        "timestamp"
+      ]
+    },
+    "EmotionData": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "EmotionData",
+      "type": "object",
+      "description": "Stores emotion data detected from user input.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the emotion data entry."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to the User. (Relationship: User 1:N EmotionData)"
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "Timestamp of when the emotion was detected.",
+          "format": "date-time"
+        },
+        "emotion": {
+          "type": "string",
+          "description": "The detected emotion (e.g., joy, sadness, anger)."
+        },
+        "confidence": {
+          "type": "number",
+          "description": "Confidence level of the emotion detection (0-1)."
+        },
+        "inputText": {
+          "type": "string",
+          "description": "The input text used to detect the emotion."
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "timestamp",
+        "emotion",
+        "confidence",
+        "inputText"
+      ]
+    },
+    "GuidedExercise": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "GuidedExercise",
+      "type": "object",
+      "description": "Represents a guided meditation or breathing exercise.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the guided exercise."
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the guided exercise."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the guided exercise."
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of exercise (e.g., meditation, breathing)."
+        },
+        "audioUrl": {
+          "type": "string",
+          "description": "URL of the audio file for the exercise.",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "type",
+        "audioUrl"
+      ]
+    },
+    "CrisisContact": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "CrisisContact",
+      "type": "object",
+      "description": "Represents a mental health professional or crisis hotline.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the crisis contact."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the contact or organization."
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Phone number of the contact.",
+          "format": "string"
+        },
+        "description": {
+          "type": "string",
+          "description": "A description for the crisis contact"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "phoneNumber",
+        "description"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "users/{userId}",
+        "definition": {
+          "entityName": "User",
+          "schema": {
+            "$ref": "#/backend/entities/User"
+          },
+          "description": "Stores user profile information. The 'userId' is used for path-based ownership.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user."
+            }
+          ]
+        }
+      },
+      {
+        "path": "users/{userId}/conversations/{messageId}",
+        "definition": {
+          "entityName": "ConversationMessage",
+          "schema": {
+            "$ref": "#/backend/entities/ConversationMessage"
+          },
+          "description": "Stores the history of chat messages for a specific user.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user."
+            },
+            {
+              "name": "messageId",
+              "description": "The unique identifier of the chat message."
+            }
+          ]
+        }
+      },
+      {
+        "path": "users/{userId}/emotionData/{emotionDataId}",
+        "definition": {
+          "entityName": "EmotionData",
+          "schema": {
+            "$ref": "#/backend/entities/EmotionData"
+          },
+          "description": "Stores emotion data associated with a specific user. The 'userId' in the path ensures only the user can access their emotion data.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user."
+            },
+            {
+              "name": "emotionDataId",
+              "description": "The unique identifier of the emotion data entry."
+            }
+          ]
+        }
+      },
+      {
+        "path": "guidedExercises/{guidedExerciseId}",
+        "definition": {
+          "entityName": "GuidedExercise",
+          "schema": {
+            "$ref": "#/backend/entities/GuidedExercise"
+          },
+          "description": "Stores information about guided exercises. This collection can be publicly accessible or restricted to admins.",
+          "params": [
+            {
+              "name": "guidedExerciseId",
+              "description": "The unique identifier of the guided exercise."
+            }
+          ]
+        }
+      },
+      {
+        "path": "crisisContacts/{crisisContactId}",
+        "definition": {
+          "entityName": "CrisisContact",
+          "schema": {
+            "$ref": "#/backend/entities/CrisisContact"
+          },
+          "description": "Stores information about crisis contacts. This collection can be publicly accessible or restricted to admins.",
+          "params": [
+            {
+              "name": "crisisContactId",
+              "description": "The unique identifier of the crisis contact."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure is designed to support SentiHeal's core features, focusing on emotion detection, personalized support, guided exercises, crisis intervention, and progress tracking. It leverages path-based ownership for user-specific data and a dedicated collection for shared discussion messages. The structure prioritizes authorization independence and supports secure list operations.\n\nAuthorization Independence (Strategy A):\n*   `users/{userId}/emotionData/{emotionDataId}`: Emotion data is stored under each user's document. The `userId` is inherently tied to the document path, ensuring that only the user can access their emotion data. No `get()` calls are needed to verify ownership.\n*   `discussionMessages/{messageId}`: While discussion messages are shared, the `userId` is included in each document. If moderation rules require checking user roles, consider denormalizing admin roles into the `discussionMessages` document to avoid `get()` calls.\n\nStructural Segregation (Strategy B):\n*   User-specific data (emotionData) is stored under the `/users/{userId}` path, while shared discussion messages are stored in the `/discussionMessages` collection. This segregation allows for distinct security rules. For instance, emotion data is only accessible to the associated user, while discussion messages may have different access controls based on moderation rules.\n\nAccess Modeling (Strategy C):\n*   Path-Based Ownership: The `/users/{userId}/emotionData/{emotionDataId}` path establishes clear ownership. Only the user identified by `{userId}` can access data within that path.\n\nQAPs (Rules are not Filters):\n*   The structure enables secure list operations because the security rules can directly leverage the path-based ownership. For example, listing emotion data under `/users/{userId}/emotionData` is secure since rules can enforce that only the user associated with `{userId}` can access that data.\n*   For `discussionMessages`, listing messages can be secured via moderation rules. If admin roles are denormalized into the message documents (as suggested above), the rules can efficiently check if the requesting user is an admin without needing `get()` calls."
+  }
+}
